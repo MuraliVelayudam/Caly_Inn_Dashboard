@@ -40,9 +40,7 @@ export default function Location_Card_Menu({ location }) {
           <DialogHeader>
             <div className="flex items-center justify-center">
               <DialogTitle>Location Admin Details</DialogTitle>
-              <DialogDescription className="hidden">
-                Make changes to your profile here. Click save when you're done.
-              </DialogDescription>
+              <DialogDescription className="hidden"></DialogDescription>
             </div>
           </DialogHeader>
           <div className="space-y-2">
