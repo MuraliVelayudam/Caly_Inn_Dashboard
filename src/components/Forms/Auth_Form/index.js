@@ -1,16 +1,13 @@
 "use client";
 
 import Image from "next/image";
-
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -23,19 +20,17 @@ import { loginForm_Inputs } from "@/constants";
 
 // REACT ICONS
 import { FaArrowRightLong } from "react-icons/fa6";
-
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-import logo_Black from "@/assets/logo_black.png";
+import logo_Black from "/public/logo_black.png";
 
-// TOASTER
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   email: z
     .string()
-    .email({ message: "Email is required" })
+    .email("Invalid email format")
     .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
       message: "Email must be in the format: user@domain.com",
     }),
@@ -73,6 +68,7 @@ export default function Login_Form() {
       // Storing tokens in local storage
       localStorage.setItem("access-token", response.data.access);
       localStorage.setItem("refresh-token", response.data.refresh);
+
       form.reset();
       router.push("/super_admin");
       toast({
@@ -80,11 +76,15 @@ export default function Login_Form() {
         description: "You have successfully logged in.",
       });
     } catch (error) {
-      console.log(error);
+      const errorMessage =
+        error.response?.data?.message ||
+        "Please check your email and password and try again.";
+      console.error("Login error:", errorMessage);
+
       toast({
         variant: "destructive",
         title: "Login Failed",
-        description: "Please check your email and password and try again.",
+        description: errorMessage,
       });
     }
   }
@@ -103,7 +103,7 @@ export default function Login_Form() {
         />
       </div>
       <div className="flex justify-center my-6">
-        <h1 className="text-base text-center  text-clayInnPrimary">
+        <h1 className="text-base text-center text-clayInnPrimary">
           Enter your email and password to continue.
         </h1>
       </div>
@@ -116,7 +116,7 @@ export default function Login_Form() {
               name={each_Input.name}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="">{each_Input.label}</FormLabel>
+                  <FormLabel>{each_Input.label}</FormLabel>
                   <FormControl>
                     <Input
                       type={each_Input.type}
@@ -125,9 +125,6 @@ export default function Login_Form() {
                       className="max-md:w-[85vw] md:w-[40vw] xl:w-[30vw] w-[40vw] h-10 placeholder:text-xs"
                     />
                   </FormControl>
-                  <FormDescription className="hidden">
-                    This is your public display name.
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
