@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import sideLogo from "../../../../public/logo_white.png";
+import logo_white from "../../../../public/logo_white.png";
 
 import { useParams, usePathname } from "next/navigation";
 import Nav from "../Nav";
@@ -16,7 +16,7 @@ export default function Large_Devices() {
     <div className="flex flex-col h-full">
       <div className="bg-black w-full h-[20vh] flex justify-center items-center rounded-t-2xl">
         <Image
-          src={sideLogo}
+          src={logo_white}
           alt="logo"
           width={150}
           height={150}
