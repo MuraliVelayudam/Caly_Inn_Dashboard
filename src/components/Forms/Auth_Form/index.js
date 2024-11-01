@@ -24,7 +24,7 @@ import { loginForm_Inputs } from "@/constants";
 // REACT ICONS
 import { FaArrowRightLong } from "react-icons/fa6";
 
-import logo_Black from "../../../assets/logos/logo_Black.png";
+import logo_Black from "../../../assets/logos/logo_black.png";
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
