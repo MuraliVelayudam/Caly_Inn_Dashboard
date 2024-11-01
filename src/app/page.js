@@ -1,5 +1,9 @@
-import Login_Form from "@/components/Forms/Auth_Form";
+import Login from "./auth/login/page";
 
 export default function Home() {
-  return <Login_Form />;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
