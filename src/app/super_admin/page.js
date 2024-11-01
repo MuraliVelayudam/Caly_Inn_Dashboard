@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import Location_Card_Menu from "@/components/Location_Components/Location_Card_Menu";
 import Add_New_Location from "@/components/Location_Components/Add_New_Location";
+import getRandomLightColor from "@/constants/random_Color";
 
 export default function Super_Admin() {
   const dispatch = useDispatch();
@@ -39,14 +40,6 @@ export default function Super_Admin() {
       </p>
     );
   }
-
-  // Function to generate a random light color
-  const getRandomLightColor = () => {
-    const r = Math.floor(Math.random() * 156) + 100;
-    const g = Math.floor(Math.random() * 156) + 100;
-    const b = Math.floor(Math.random() * 156) + 100;
-    return `rgb(${r}, ${g}, ${b},0.1)`;
-  };
 
   return (
     <div className="flex flex-col items-center h-screen space-y-8 relative">

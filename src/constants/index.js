@@ -1,3 +1,14 @@
+// ICONS IMPORT
+import {
+  Album,
+  Calendar1,
+  Castle,
+  Home,
+  MapPin,
+  NotebookTabs,
+  Users,
+} from "lucide-react";
+
 // LOGIN FORM INPUT
 
 const loginForm_Inputs = [
@@ -49,4 +60,70 @@ const createLocationForm_Inputs = [
   },
 ];
 
-export { loginForm_Inputs, createLocationForm_Inputs };
+const navLinks = [
+  {
+    id: 0,
+    title: "Dashboard",
+    link: "dashboard",
+    icon: <Home size={25} />,
+    isAdmin: "false",
+    active: true,
+  },
+  {
+    id: 1,
+    title: "Leads",
+    link: "leads",
+    icon: <NotebookTabs size={25} />,
+    isAdmin: "false",
+    active: false,
+  },
+  {
+    id: 2,
+    title: "Bookings",
+    link: "bookings",
+    icon: <Album size={25} />,
+    isAdmin: "false",
+    active: false,
+  },
+  {
+    id: 3,
+    title: "Venues",
+    link: "venues",
+    icon: <Castle size={25} />,
+    isAdmin: "false",
+    active: false,
+  },
+  {
+    id: 4,
+    title: "Calendar",
+    link: "calendar",
+    icon: <Calendar1 size={25} />,
+    isAdmin: "false",
+    active: false,
+  },
+
+  {
+    id: 5,
+    title: "Team",
+    link: "team",
+    icon: <Users size={25} />,
+    isAdmin: "false",
+    active: false,
+  },
+];
+
+// Create New Venue Form Action Inputs
+const createNewVenueForm_Inputs = [
+  {
+    name: "name",
+    label: "Venue Name",
+    placeholder: "Enter Venue Venue Name . . .",
+  },
+];
+
+export {
+  loginForm_Inputs,
+  createLocationForm_Inputs,
+  navLinks,
+  createNewVenueForm_Inputs,
+};
