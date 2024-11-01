@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import sideLogo from "/public/logo_white.png";
+import sideLogo from "../../../../public/logo_white.png";
 
 import { useParams, usePathname } from "next/navigation";
 import Nav from "../Nav";
