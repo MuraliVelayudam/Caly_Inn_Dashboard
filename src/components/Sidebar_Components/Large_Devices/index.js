@@ -6,7 +6,7 @@ import { useParams, usePathname } from "next/navigation";
 import Nav from "../Nav";
 import Logout from "@/components/Auth_Components/Logout";
 
-import logo from "../../../../public/logo_white.png";
+import logo from "/public/logo.png";
 
 export default function Large_Devices() {
   const { locationId } = useParams();
