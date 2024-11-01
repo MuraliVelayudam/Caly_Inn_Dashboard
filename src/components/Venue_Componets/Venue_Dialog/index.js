@@ -37,9 +37,7 @@ export default function Venue_Dialog({ action }) {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
+            <DialogDescription></DialogDescription>
           </DialogHeader>
           <div className="">
             <Venue_Create_Form action={action} setOpen={setOpen} />
