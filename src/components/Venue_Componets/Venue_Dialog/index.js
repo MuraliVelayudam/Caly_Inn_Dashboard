@@ -16,14 +16,21 @@ import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 
-export default function Venue_Dialog({ action }) {
+export default function Venue_Dialog({
+  action,
+  location_Id,
+  venue,
+  classname,
+}) {
   const [open, setOpen] = useState(false);
 
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button className="flex items-center gap-2 bg-buttonBg text-white hover:bg-buttonBg/80 transition-all duration-300 ease-linear">
+          <Button
+            className={`flex items-center gap-2 bg-buttonBg text-white hover:bg-buttonBg/80 transition-all duration-300 ease-linear`}
+          >
             <span>
               {action === "create" ? (
                 <FaPlus size={20} />
@@ -36,11 +43,18 @@ export default function Venue_Dialog({ action }) {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle className="capitalize text-center">
+              {action}
+            </DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
           <div className="">
-            <Venue_Create_Form action={action} setOpen={setOpen} />
+            <Venue_Create_Form
+              action={action}
+              setOpen={setOpen}
+              location_Id={location_Id}
+              venue={venue}
+            />
           </div>
         </DialogContent>
       </Dialog>

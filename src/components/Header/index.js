@@ -9,7 +9,7 @@ export default function Header({ content }) {
       <p>
         <FaAngleRight size={24} />
       </p>
-      <p className="max-md:text-lg md:text-2xl">{content}</p>
+      <p className="max-md:text-lg md:text-2xl capitalize">{content}</p>
     </div>
   );
 }

@@ -9,6 +9,8 @@ import { useEffect } from "react";
 
 import getRandomLightColor from "@/constants/random_Color";
 import Venue_Calendar from "@/components/Venue_Componets/Venue_Calendar";
+import { Button } from "@/components/ui/button";
+import Venue_Detail from "@/components/Venue_Componets/Venue_Detail_Dialog";
 
 export default function Venues() {
   const pathname = usePathname();
@@ -29,25 +31,29 @@ export default function Venues() {
       </div>
       <div className="flex justify-end items-center gap-4">
         <Venue_Calendar />
-        <Venue_Dialog action="create" />
+        <Venue_Dialog action="create" location_Id={location_Id} />
       </div>
 
       <div>
         {all_venues.length > 0 ? (
           <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
             {all_venues.map((venue) => (
-              <div
-                key={venue?.venue_id}
-                className="max-md:w-[95vw] md:w-[300px]  p-4 rounded-lg h-[200px] border border-black/5 shadow-md flex flex-col items-center justify-center space-y-4"
-                style={{ backgroundColor: getRandomLightColor() }}
-              >
-                <span className="text-xl font-bold capitalize">
-                  {venue?.name}
-                </span>
-                <span className="text-sm bg-mainBg p-4 border border-black/5 rounded-xl shadow-lg font-semibold">
-                  80%
-                </span>
-                <span className="text-sm ">Booked</span>
+              <div key={venue?.venue_id} className="relative">
+                <div
+                  className="max-md:w-[95vw] md:w-[300px]  p-4 rounded-lg h-[200px] border border-black/5 shadow-md flex flex-col items-center justify-center space-y-4"
+                  style={{ backgroundColor: getRandomLightColor() }}
+                >
+                  <span className="text-xl font-bold capitalize">
+                    {venue?.name}
+                  </span>
+                  <span className="text-sm bg-mainBg p-4 border border-black/5 rounded-xl shadow-lg font-semibold">
+                    80%
+                  </span>
+                  <span className="text-sm ">Booked</span>
+                </div>
+                <div className="absolute top-2 right-2">
+                  <Venue_Detail location_Id={location_Id} venue={venue} />
+                </div>
               </div>
             ))}
           </div>

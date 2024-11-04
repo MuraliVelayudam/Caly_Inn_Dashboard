@@ -65,7 +65,7 @@ const navLinks = [
     id: 0,
     title: "Dashboard",
     link: "dashboard",
-    icon: <Home size={25} />,
+    icon: <Home size={22} />,
     isAdmin: "false",
     active: true,
   },
@@ -73,7 +73,7 @@ const navLinks = [
     id: 1,
     title: "Leads",
     link: "leads",
-    icon: <NotebookTabs size={25} />,
+    icon: <NotebookTabs size={22} />,
     isAdmin: "false",
     active: false,
   },
@@ -81,7 +81,7 @@ const navLinks = [
     id: 2,
     title: "Bookings",
     link: "bookings",
-    icon: <Album size={25} />,
+    icon: <Album size={22} />,
     isAdmin: "false",
     active: false,
   },
@@ -89,7 +89,7 @@ const navLinks = [
     id: 3,
     title: "Venues",
     link: "venues",
-    icon: <Castle size={25} />,
+    icon: <Castle size={22} />,
     isAdmin: "false",
     active: false,
   },
@@ -97,7 +97,7 @@ const navLinks = [
     id: 4,
     title: "Calendar",
     link: "calendar",
-    icon: <Calendar1 size={25} />,
+    icon: <Calendar1 size={22} />,
     isAdmin: "false",
     active: false,
   },
@@ -106,7 +106,7 @@ const navLinks = [
     id: 5,
     title: "Team",
     link: "team",
-    icon: <Users size={25} />,
+    icon: <Users size={22} />,
     isAdmin: "false",
     active: false,
   },
@@ -121,9 +121,30 @@ const createNewVenueForm_Inputs = [
   },
 ];
 
+// Create New Team Form Action Inputs
+const createNew_Team_Form_Inputs = [
+  {
+    name: "name",
+    placeholder: "Enter Member Name",
+  },
+  {
+    name: "email",
+    placeholder: "Enter Member Email",
+  },
+  {
+    name: "password",
+    placeholder: "Enter Member Name",
+  },
+  {
+    name: "mobile",
+    placeholder: "Enter Member Name",
+  },
+];
+
 export {
   loginForm_Inputs,
   createLocationForm_Inputs,
   navLinks,
   createNewVenueForm_Inputs,
+  createNew_Team_Form_Inputs,
 };

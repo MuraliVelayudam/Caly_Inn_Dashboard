@@ -20,6 +20,7 @@ module.exports = {
         sidebarBackground: "#624E2A ",
         buttonBg: "#001af3 ",
         mainText: "#434242",
+        team_Btn_Bg: "#5b4eb3",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

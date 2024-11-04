@@ -17,8 +17,11 @@ import { createNewVenueForm_Inputs } from "@/constants";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import {
+  create_Venue_Action,
   createNewVenue_Actions,
+  fetchVenues_Actions,
   updateVenue_Actions,
+  venue_Update_action,
 } from "@/app/redux/venue_Slice";
 import { useToast } from "@/hooks/use-toast";
 
@@ -33,21 +36,52 @@ const formSchema = z.object({
   // location: z.string().min(5, { message: "Location must be at least 5 characters." }).max(50, { message: "Location cannot exceed 50 characters." }),
 });
 
-export default function Venue_Create_Form({ action, setOpen }) {
+export default function Venue_Create_Form({
+  action,
+  setOpen,
+  location_Id,
+  venue,
+}) {
   const dispatch = useDispatch();
   const router = useRouter();
   const { toast } = useToast();
+
+  console.log(venue, "------");
 
   // 1. Define your form using the zodResolver and formSchema
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      name: venue?.name || "",
     },
   });
 
+  const venue_id = venue?.venue_id;
+
   // 2. Define a submit handler.
-  async function onSubmit(values) {}
+  async function onSubmit(values) {
+    try {
+      if (venue) {
+        await dispatch(venue_Update_action({ values, location_Id, venue_id }));
+      } else {
+        await dispatch(create_Venue_Action({ values, location_Id }));
+      }
+
+      setOpen(false);
+      form.reset();
+      router.refresh();
+      toast({
+        title: "Venue Updated Successfully !",
+      });
+    } catch (error) {
+      console.log(error);
+      toast({
+        variant: "destructive",
+        title: "Some thing went wrong !",
+        description: "Please try again or contact support . . . !",
+      });
+    }
+  }
 
   return (
     <div>

@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 import wave from "/public/wave.svg";
-import { Separator } from "@/components/ui/separator";
+// import { Separator } from "@/components/ui/separator";
 
-import PieChart_Graph from "@/components/Dashboard_Components/PieChart";
-import Graph from "@/components/Dashboard_Components/Graph";
+// import PieChart_Graph from "@/components/Dashboard_Components/PieChart";
+// import Graph from "@/components/Dashboard_Components/Graph";
 
 export default function Dashboard() {
   const pathname = usePathname();
@@ -174,18 +174,14 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-3 w-full gap-4">
         <div className="col-span-1 h-[95%] max-md:col-span-3 md:hidden xl:block">
-          <div className="h-[50%]">
-            <PieChart_Graph />
-          </div>
-          <div className="h-[50%]">
-            <PieChart_Graph />
-          </div>
+          <div className="h-[50%]">{/* <PieChart_Graph /> */}</div>
+          <div className="h-[50%]">{/* <PieChart_Graph /> */}</div>
         </div>
 
         {/* ---------------------------------------- */}
-        <div className="xl:col-span-2 h-[100%] max-md:col-span-3 md:col-span-3">
+        {/* <div className="xl:col-span-2 h-[100%] max-md:col-span-3 md:col-span-3">
           <Graph />
-        </div>
+        </div> */}
       </div>
     </div>
   );
