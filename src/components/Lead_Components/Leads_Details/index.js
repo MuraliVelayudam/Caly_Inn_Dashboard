@@ -25,8 +25,6 @@ export default function LeadsDetails({ lead }) {
     }
   }, [dispatch, lead?.lead_number]);
 
-  console.log(lead_By_Id, "1121");
-
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>

@@ -51,6 +51,31 @@ export const fetch_Lead_By_ID = createAsyncThunk(
   }
 );
 
+// DELETE
+export const delete_Lead_By_SuperAdmin = createAsyncThunk(
+  "lead/delete",
+  async (lead_number, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("access-token");
+
+      await axios.delete(
+        `${url}/leads-management/leads/delete/${lead_number}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      return lead_number;
+    } catch (error) {
+      return rejectWithValue(
+        error.response.data || "Failed to delete the lead "
+      );
+    }
+  }
+);
+
 const leadsSlice = createSlice({
   name: "leads",
   initialState,
@@ -71,7 +96,7 @@ const leadsSlice = createSlice({
       })
       .addCase(fetch_Lead_By_ID.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(fetch_Lead_By_ID.fulfilled, (state, action) => {
         state.loading = false;
@@ -80,6 +105,20 @@ const leadsSlice = createSlice({
       .addCase(fetch_Lead_By_ID.rejected, (state, action) => {
         state.loading = false;
         state.lead_By_Id = {};
+        state.error = action.payload;
+      })
+      .addCase(delete_Lead_By_SuperAdmin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(delete_Lead_By_SuperAdmin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.leads = state.leads.filter(
+          (lead) => lead.lead_number !== action.payload
+        );
+      })
+      .addCase(delete_Lead_By_SuperAdmin.rejected, (state, action) => {
+        state.loading = false;
         state.error = action.payload;
       });
   },

@@ -39,6 +39,7 @@ import {
 
 import { BiSort } from "react-icons/bi";
 import LeadsDetails from "../Leads_Details";
+import Lead_Delete from "../Leads_Delete";
 
 const columns = [
   {
@@ -139,6 +140,9 @@ const columns = [
             <DropdownMenuSeparator />
             <div className="flex items-center justify-center">
               <LeadsDetails lead={lead} />
+            </div>
+            <div className="flex items-center justify-center">
+              <Lead_Delete lead={lead} />
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
