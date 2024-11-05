@@ -38,6 +38,7 @@ import {
 } from "@/components/ui/table";
 
 import { BiSort } from "react-icons/bi";
+import LeadsDetails from "../Leads_Details";
 
 const columns = [
   {
@@ -128,7 +129,7 @@ const columns = [
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="center">
             <DropdownMenuLabel className="hidden">Actions</DropdownMenuLabel>
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(lead.lead_number)}
@@ -136,10 +137,9 @@ const columns = [
               Copy Lead Number
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              {/* ---------------------- */}
-              lead details
-            </DropdownMenuItem>
+            <div className="flex items-center justify-center">
+              <LeadsDetails lead={lead} />
+            </div>
           </DropdownMenuContent>
         </DropdownMenu>
       );
