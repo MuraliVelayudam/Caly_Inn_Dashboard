@@ -11,6 +11,7 @@ import getRandomLightColor from "@/constants/random_Color";
 import Venue_Calendar from "@/components/Venue_Componets/Venue_Calendar";
 import { Button } from "@/components/ui/button";
 import Venue_Detail from "@/components/Venue_Componets/Venue_Detail_Dialog";
+import Footer_Component from "@/components/Footer";
 
 export default function Venues() {
   const pathname = usePathname();
@@ -25,7 +26,7 @@ export default function Venues() {
   }, [dispatch, location_Id]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 h-[95vh]">
       <div>
         <Header content={`${locationName}`} />
       </div>
@@ -34,7 +35,7 @@ export default function Venues() {
         <Venue_Dialog action="create" location_Id={location_Id} />
       </div>
 
-      <div>
+      <div className="h-screen  flex-1">
         {all_venues.length > 0 ? (
           <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
             {all_venues.map((venue) => (
@@ -60,6 +61,9 @@ export default function Venues() {
         ) : (
           <div>No Venues Found </div>
         )}
+      </div>
+      <div>
+        <Footer_Component content={location_Id} />
       </div>
     </div>
   );

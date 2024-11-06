@@ -182,7 +182,7 @@ export default function LeadsTable({ leads, locationId }) {
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
+      <div className="flex max-md:flex-col gap-4 flex-row items-center py-4">
         <Input
           placeholder="Filter by host name or lead number..."
           value={filterValue}
@@ -194,7 +194,7 @@ export default function LeadsTable({ leads, locationId }) {
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="ml-auto">
+            <Button className="ml-auto max-md:w-full">
               <span>
                 <BiSort size={20} />
               </span>{" "}

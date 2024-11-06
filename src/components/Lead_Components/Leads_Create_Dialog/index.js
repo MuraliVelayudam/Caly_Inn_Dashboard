@@ -22,7 +22,7 @@ export default function Lead_Create_Dialog({ action }) {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button className="bg-team_Btn_Bg hover:bg-team_Btn_Bg/90 transition-all duration-300 ease-linear capitalize">
-            {action} Team
+            {action} a New Lead
           </Button>
         </DialogTrigger>
         <DialogContent className="h-[600px] overflow-auto">
